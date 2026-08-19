@@ -31,7 +31,7 @@ public class ArtistaService {
     }
 
     public List<Artista> buscarPorNome(String nome) {
-        return artistaRepository.findByNomeContem(nome);
+        return artistaRepository.findByNomeContaining(nome);
     }
 
     public List<Artista> buscarPorNacionalidade(String nacionalidade) {

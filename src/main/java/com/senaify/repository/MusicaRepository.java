@@ -12,10 +12,10 @@ import java.util.List;
 public interface MusicaRepository extends JpaRepository<Musica, Long> {
 
     // Buscar músicas por gênero musical
-    List<Musica> findByGeneroIgual(String genero);
+    List<Musica> findByGenero(String genero);
 
     // Buscar músicas com duração maior que o valor informado (em segundos)
-    @Query("SELECT m FROM Musica m WHERE m.duracao_segundos > :duracao")
+    @Query("SELECT m FROM Musica m WHERE m.duracaoSegundos > :duracao")
     List<Musica> buscarMusicasLongas(@Param("duracao") Integer duracaoMinima);
 
     // Buscar músicas de um artista ordenadas por título em ordem ascendente

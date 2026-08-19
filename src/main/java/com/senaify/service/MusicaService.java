@@ -31,7 +31,7 @@ public class MusicaService {
     }
 
     public List<Musica> buscarPorGenero(String genero) {
-        return musicaRepository.findByGeneroIgual(genero);
+        return musicaRepository.findByGenero(genero);
     }
 
     public List<Musica> buscarMusicasLongas(Integer duracaoMinima) {

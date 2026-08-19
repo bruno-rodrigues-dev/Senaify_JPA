@@ -17,13 +17,13 @@ public interface EstatisticaRepository extends JpaRepository<Estatistica, Long> 
 
     // Buscar o total de reproduções de todas as músicas de um artista
     @Query("SELECT SUM(e.totalReproducoes) FROM Estatistica e WHERE e.musica.artista.id = :artistaId")
-    List<Estatistica> buscarTotalReproducoesPorArtista(@Param("artistaId") Long artistaId);
+    Long buscarTotalReproducoesPorArtista(@Param("artistaId") Long artistaId);
 
     // Buscar estatísticas com mais de X reproduções
     List<Estatistica> findByTotalReproducoesGreaterThan(Long minimo);
 
     // Buscar estatísticas com mais curtidas que o valor informado, ordenadas por curtidas
-    @Query("SELECT e FROM estatisticas e WHERE e.totalCurtidas > :curtidas ORDER BY e.totalCurtidas DESC")
+    @Query("SELECT e FROM Estatistica e WHERE e.totalCurtidas > :curtidas ORDER BY e.totalCurtidas DESC")
     List<Estatistica> buscarMaisCurtidas(@Param("curtidas") Long curtidas);
 
     // Buscar estatísticas com reproduções acima do mínimo, ordenadas pelo título da música

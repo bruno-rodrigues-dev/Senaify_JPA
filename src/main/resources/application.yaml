@@ -3,14 +3,14 @@ spring:
     name: senaify
 
   datasource:
-    url: jdbc:mysql://localhost:3306/senaify_db
+    url: jdbc:mysql://localhost:3306/senaify_db?createDatabaseIfNotExist=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     properties:
       hibernate:
